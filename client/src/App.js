@@ -1,6 +1,7 @@
 import React from 'react';
 import { ApolloProvider, useQuery, gql, useMutation } from '@apollo/client';
 import client from './apollo';
+import TodoForm from './TodoForm';
 import './app.css';
 
 const GET_TODOS = gql`
@@ -77,9 +78,9 @@ function App() {
   };
 
   return (
-    <div>
+    <div style={{ "width": "40rem"}}>
       <h1>Todo List</h1>
-      <button onClick={handleAddTodo}>Add Todo</button>
+      <TodoForm/>
       <ul>
         {data.todos.map(todo => (
           <li key={todo.id}>
