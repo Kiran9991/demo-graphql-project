@@ -46,22 +46,11 @@ const DELETE_TODO = gql`
 
 function App() {
   const { loading, error, data } = useQuery(GET_TODOS);
-  const [addTodo] = useMutation(ADD_TODO);
   const [toggleTodo] = useMutation(TOGGLE_TODO);
   const [deleteTodo] = useMutation(DELETE_TODO);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
-
-  const handleAddTodo = () => {
-    const title = prompt('Enter todo title:');
-    if (title) {
-      addTodo({
-        variables: { title },
-        refetchQueries: [{ query: GET_TODOS }]
-      });
-    }
-  };
 
   const handleToggleTodo = (id) => {
     toggleTodo({
