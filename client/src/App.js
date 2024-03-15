@@ -14,16 +14,6 @@ const GET_TODOS = gql`
   }
 `;
 
-const ADD_TODO = gql`
-  mutation AddTodo($title: String!) {
-    addTodo(title: $title) {
-      id
-      title
-      completed
-    }
-  }
-`;
-
 const TOGGLE_TODO = gql`
   mutation ToggleTodo($id: ID!) {
     toggleTodo(id: $id) {
